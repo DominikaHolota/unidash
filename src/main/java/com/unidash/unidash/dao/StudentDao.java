@@ -21,4 +21,13 @@ public class StudentDao {
         );
     }
 
+    public List<Student> findById(int id) {
+        String sql = "select * from student where id = " + id;
+
+        return jdbcTemplate.query(
+            sql,
+            new BeanPropertyRowMapper<Student>(Student.class)
+        );
+    }
+
 }
