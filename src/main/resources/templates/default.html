@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidash</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <title>Unidash</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav">
+            <li class="nav-item logo">
+                <img src="/images/logo.png" alt="">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <button type="button" class="btn btn-outline-warning menu-btn">jakas</button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <button type="button" class="btn btn-outline-warning menu-btn">pozycja</button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/test">
+                    <button type="button" class="btn btn-outline-warning menu-btn">test</button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/student">
+                    <button type="button" class="btn btn-outline-warning menu-btn">studenci</button>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section layout:fragment="content">
+    <p>Zawartość strony</p>
+</section>
+</body>
+</html>
