@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Unidash</title>
+    <link rel="stylesheet" href="/css/loginForm.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">    <title>Unidash - login</title>
 </head>
 <body>
-
+<section class="loginForm">
+    <header>
+        <img src="/images/logo.png" alt="logo Uni-dash"><h1> Elektroniczny system zarządzania uczelnią <nobr>Uni-dash</nobr></h1>
+    </header>
+    <article>
+            <p>Zaloguj się do swojego konta:</p>
+        <form>
+            <input type="text" name="username" placeholder="ID użytkownika" autofocus class="text-input">
+            <input type="password" name="password" placeholder="Hasło" class="text-input">
+            <input type="submit" value="Zaloguj się" class="confirm-button">
+        </form>
+        <p class="additional-info">Zapomniałeś hasła? Skontaktuj się z dziekanatem.</p>
+    </article>
+</section>
 </body>
 </html>
