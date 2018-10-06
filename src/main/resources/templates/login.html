@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
@@ -13,8 +14,14 @@
         <img src="/images/logo.png" alt="logo Uni-dash"><h1> Elektroniczny system zarządzania uczelnią <nobr>Uni-dash</nobr></h1>
     </header>
     <article>
+        <div th:if="${param.error}">
+            <p class="error msg">Nieprawidłowy login lub hasło.</p>
+        </div>
+        <div th:if="${param.logout}">
+            <p class="msg">Wylogowano.</p>
+        </div>
             <p>Zaloguj się do swojego konta:</p>
-        <form>
+        <form th:action="@{/login}" method="post">
             <input type="text" name="username" placeholder="ID użytkownika" autofocus class="text-input" required>
             <input type="password" name="password" placeholder="Hasło" class="text-input" required>
             <input type="submit" value="Zaloguj się" class="confirm-button">

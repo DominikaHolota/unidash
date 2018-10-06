@@ -102,3 +102,11 @@ article p {
         margin-top: 40px;
     }
 }
+
+.msg {
+    color: red;
+}
+
+.error {
+    font-weight: bold;
+}
