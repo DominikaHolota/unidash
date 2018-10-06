@@ -19,8 +19,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/css/**", "/images/**").permitAll()
                 .antMatchers("/").authenticated()
-                .antMatchers("/student").hasRole("STUDENT")
-                .anyRequest().authenticated()
+                .antMatchers("/studenty/**").hasRole("student")
+                //.anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -38,8 +38,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 User.withDefaultPasswordEncoder()
                         .username("user")
                         .password("password")
-                        .roles("USER")
+                        .roles("student")
                         .build();
+
 
         return new InMemoryUserDetailsManager(user);
     }

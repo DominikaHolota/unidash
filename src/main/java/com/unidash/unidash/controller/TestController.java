@@ -16,4 +16,9 @@ public class TestController {
         return "test";
     }
 
+    @RequestMapping("/studenty/studentyglupie")
+    public String studenty() {
+        return "stuent/main";
+    }
+
 }
