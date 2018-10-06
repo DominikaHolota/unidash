@@ -1,10 +1,13 @@
 package com.unidash.unidash.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Entity
+@Data
 @Table(name="Users")
 public class Users implements Serializable {
     @Id
