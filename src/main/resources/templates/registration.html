@@ -42,9 +42,14 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{role}" placeholder="Status" class="form-control"/>
+                        <select th:field="*{role}">
+                            <option th:value="'student'" th:text="Student"></option>
+                            <option th:value="'teacher'" th:text="Nauczyciel"></option>
+                            <option th:value="'admin'" th:text="Admin"></option>
+                        </select>
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     <div class="col-sm-9">

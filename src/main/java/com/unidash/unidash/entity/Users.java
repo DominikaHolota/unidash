@@ -18,7 +18,7 @@ public class Users implements Serializable {
     private Long id;
     @NotEmpty
     @Column(nullable = false)
-    @Pattern(regexp = "student|teacher|admin", flags = Pattern.Flag.CASE_INSENSITIVE)
+//    @Pattern(regexp = "student|teacher|admin", flags = Pattern.Flag.CASE_INSENSITIVE)
     private String role;
     @NotEmpty
     @Column(nullable = false)
@@ -50,7 +50,7 @@ public class Users implements Serializable {
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.role = "ROLE_" + role;
     }
 
     public String getEmail() {
