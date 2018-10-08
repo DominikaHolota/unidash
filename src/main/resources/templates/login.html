@@ -22,8 +22,9 @@
         </div>
             <p>Zaloguj się do swojego konta:</p>
         <form th:action="@{/login}" method="post">
-            <input type="text" name="username" placeholder="ID użytkownika" autofocus class="text-input" required>
-            <input type="password" name="password" placeholder="Hasło" class="text-input" required>
+            <input type="text" id="email" name="email" placeholder="ID użytkownika" autofocus class="text-input"
+                   required>
+            <input type="password" id="password" name="password" placeholder="Hasło" class="text-input" required>
             <input type="submit" value="Zaloguj się" class="confirm-button">
         </form>
         <p class="additional-info">Zapomniałeś hasła? Skontaktuj się z dziekanatem.</p>
