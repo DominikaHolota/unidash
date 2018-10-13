@@ -14,29 +14,16 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class StudentController {
-
-    @Autowired
-    StudentDao studentDao;
+public class UserController {
 
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/student")
-    public String getAll() {
-        return "Studenci: " + studentDao.findAll();
+    @GetMapping("/admin/users")
+    public String showAll(Model model) {
+        model.addAttribute("users", userRepository.findAll());
+        return "admin/users";
     }
-
-    @GetMapping("/student/{id}")
-    public String getById(@PathVariable int id) {
-        return "" + studentDao.findById(id);
-    }
-
-//    @GetMapping("/admin/allUsers")
-//    public String showAll(Model model) {
-//        model.addAttribute("users", userRepository.findAll());
-//        return "admin/allUsers";
-//    }
 
 //    TODO: dodać obsługę dezaktywacji użytkownika i podmienić zachowanie pola w tabelce
 

@@ -35,7 +35,7 @@ public class Users implements Serializable {
     private String lastname;
     //    @NotEmpty
 //    @Column(nullable = false)
-    private boolean isActive;
+    private boolean isActive = true;
 
     public Long getId() {
         return id;
