@@ -22,7 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-	</properties>
+        <thymeleaf-extras-springsecurity4.version>3.0.2.RELEASE</thymeleaf-extras-springsecurity4.version>
+    </properties>
 
 	<dependencies>
 		<dependency>
@@ -78,6 +79,10 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>6.0.13.Final</version>
 		</dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+        </dependency>
     </dependencies>
 
 	<build>

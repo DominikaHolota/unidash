@@ -28,6 +28,10 @@ public class UserService {
         user.setActive(true);
         userRepository.save(user);
     }
+
+    public Users getAllUsers() {
+        return userRepository.getAllExists();
+    }
 }
 
 

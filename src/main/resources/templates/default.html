@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,27 +20,62 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav">
+
+            <!--wspólne dla wszystkich-->
             <li class="nav-item logo">
                 <img src="/images/logo.png" alt="">
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login?logout">
-                    <button type="button" class="btn btn-outline-warning menu-btn">logout</button>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/">
-                    <button type="button" class="btn btn-outline-warning menu-btn">pozycja</button>
+                    <button type="button" class="btn btn-outline-warning menu-btn">Strona główna</button>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/test">
-                    <button type="button" class="btn btn-outline-warning menu-btn">test</button>
+            <!--dla studenta-->
+            <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
+                <a class="nav-link" href="student/grades">
+                    <button type="button" class="btn btn-outline-warning menu-btn">Twoje oceny</button>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/student">
-                    <button type="button" class="btn btn-outline-warning menu-btn">studenci</button>
+            <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
+                <a class="nav-link" href="student/courses">
+                    <button type="button" class="btn btn-outline-warning menu-btn">Twoje zajęcia</button>
+                </a>
+            </li>
+            <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
+                <a class="nav-link" href="student/payments">
+                    <button type="button" class="btn btn-outline-warning menu-btn">Twoje płatności</button>
+                </a>
+            </li>
+            <!--dla nauczyciela-->
+            <li sec:authorize="hasRole('ROLE_teacher')" class="nav-item">
+                <a class="nav-link" href="teacher/students">
+                    <button type="button" class="btn btn-outline-warning menu-btn">Twoi studenci</button>
+                </a>
+            </li>
+            <li sec:authorize="hasRole('ROLE_teacher')" class="nav-item">
+                <a class="nav-link" href="teacher/courses">
+                    <button type="button" class="btn btn-outline-warning menu-btn">Twoje zajęcia</button>
+                </a>
+            </li>
+            <!--dla admina-->
+            <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
+                <a class="nav-link" href="admin/users">
+                    <button type="button" class="btn btn-outline-warning menu-btn">Użytkownicy</button>
+                </a>
+            </li>
+            <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
+                <a class="nav-link" href="admin/fos">
+                    <button type="button" class="btn btn-outline-warning menu-btn">Kierunki</button>
+                </a>
+            </li>
+            <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
+                <a class="nav-link" href="admin/courses">
+                    <button type="button" class="btn btn-outline-warning menu-btn">Przedmioty</button>
+                </a>
+            </li>
+            <li class="nav-item last-item">
+                <a class="nav-link" href="/login?logout">
+                    <button type="button" class="btn btn-outline-warning menu-btn">Wyloguj się</button>
                 </a>
             </li>
         </ul>
