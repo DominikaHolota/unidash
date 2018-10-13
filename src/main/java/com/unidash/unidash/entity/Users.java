@@ -1,6 +1,7 @@
 package com.unidash.unidash.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
+@DynamicUpdate
 @Data
 @Table(name="Users")
 public class Users implements Serializable {
@@ -91,5 +93,14 @@ public class Users implements Serializable {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

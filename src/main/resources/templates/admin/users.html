@@ -18,20 +18,18 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${users.empty}">
-            <td colspan="2"> Users list is empty.</td>
-        </tr>
         <tr th:each="user : ${users}">
             <td><span th:text="${user.name}"> Title </span></td>
             <td><span th:text="${user.lastname}"> Author </span></td>
             <td><span th:text="${user.email}">Email</span></td>
             <td><span th:text="${#strings.substring(user.role,5)} ">Rola</span></td>
             <td>
-                <form th:object="${user}" th:action="@{/delete/{id}(id=${user.id})}" th:method="delete"><a href="#"
-                                                                                                           onclick="$(this).closest('form').submit()"><i
+                <form th:object="${user}" th:action="@{/admin/user/edit/{id}(id=${user.id})}" th:method="edit"><a
+                        href="#"
+                        onclick="$(this).closest('form').submit()"><i
                         class="fas fa-user-edit"></i></a></form>
             </td>
-            <td><i class="fas fa-user-times"></i></td>
+            <td><a th:href="@{/admin/user/edit/{id}(id=${user.id})}"><i class="fas fa-user-times"></i></a></td>
         </tr>
         </tbody>
     </table>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" layout:decorator="default">
+<head>
+    <title>lista userów</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <form th:action="@{/admin/user/edit/{id}(id=${user[0].id})}" th:object="${user}" method="post"
+          class="form-horizontal"
+          role="form">
+        <button type="submit" class="btn btn-primary btn-block">Register User</button>
+    </form>
+    <div th:text="${user[0].id}"></div>
+</section>
+</body>
+</html>
