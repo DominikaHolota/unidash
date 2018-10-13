@@ -11,7 +11,7 @@ public class HomeController {
     @Autowired
     StudentDao studentDao;
 
-    @RequestMapping("/")
+    @RequestMapping("/dashboard")
     public String index() {
         return "index";
     }

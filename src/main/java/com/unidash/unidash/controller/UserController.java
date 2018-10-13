@@ -49,7 +49,7 @@ public class UserController {
 //
     @RequestMapping(value = "admin/user/edit/{id}", method = RequestMethod.POST)
     public String saveUser(Users user) {
-        userService.editUser(user, "zmieniony@zmieniony.pl", "student", "nowehaslo", "zmieniony", "zmieniony", false);
+        userService.editUser(user, "zmieniony@zmieniony.pl", "student", "nowehaslo", user.getName(), "zmieniony", false);
         return "admin/users";
     }
 
