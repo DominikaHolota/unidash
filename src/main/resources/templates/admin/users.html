@@ -14,7 +14,6 @@
             <th> E-mail</th>
             <th> Rola</th>
             <th> Zmień</th>
-            <th> Usuń</th>
         </tr>
         </thead>
         <tbody>
@@ -23,13 +22,8 @@
             <td><span th:text="${user.lastname}"> Author </span></td>
             <td><span th:text="${user.email}">Email</span></td>
             <td><span th:text="${#strings.substring(user.role,5)} ">Rola</span></td>
-            <td>
-                <form th:object="${user}" th:action="@{/admin/user/edit/{id}(id=${user.id})}" th:method="edit"><a
-                        href="#"
-                        onclick="$(this).closest('form').submit()"><i
-                        class="fas fa-user-edit"></i></a></form>
-            </td>
-            <td><a th:href="@{/admin/user/edit/{id}(id=${user.id})}"><i class="fas fa-user-times"></i></a></td>
+            <td><a th:href="@{/admin/user/edit/{id}(id=${user.id})}"><i
+                    class="fas fa-user-edit"></i></a></td>
         </tr>
         </tbody>
     </table>
