@@ -35,44 +35,44 @@
             </li>
             <!--dla studenta-->
             <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
-                <a class="nav-link" href="student/grades">
+                <a class="nav-link" href="/student/grades">
                     <button type="button" class="btn btn-outline-warning menu-btn">Twoje oceny</button>
                 </a>
             </li>
             <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
-                <a class="nav-link" href="student/courses">
+                <a class="nav-link" href="/student/courses">
                     <button type="button" class="btn btn-outline-warning menu-btn">Twoje zajęcia</button>
                 </a>
             </li>
             <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
-                <a class="nav-link" href="student/payments">
+                <a class="nav-link" href="/student/payments">
                     <button type="button" class="btn btn-outline-warning menu-btn">Twoje płatności</button>
                 </a>
             </li>
             <!--dla nauczyciela-->
             <li sec:authorize="hasRole('ROLE_teacher')" class="nav-item">
-                <a class="nav-link" href="teacher/students">
+                <a class="nav-link" href="/teacher/students">
                     <button type="button" class="btn btn-outline-warning menu-btn">Twoi studenci</button>
                 </a>
             </li>
             <li sec:authorize="hasRole('ROLE_teacher')" class="nav-item">
-                <a class="nav-link" href="teacher/courses">
+                <a class="nav-link" href="/teacher/courses">
                     <button type="button" class="btn btn-outline-warning menu-btn">Twoje zajęcia</button>
                 </a>
             </li>
             <!--dla admina-->
             <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
-                <a class="nav-link" href="admin/users">
+                <a class="nav-link" href="/admin/users">
                     <button type="button" class="btn btn-outline-warning menu-btn">Użytkownicy</button>
                 </a>
             </li>
             <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
-                <a class="nav-link" href="admin/fos">
+                <a class="nav-link" href="/admin/fos">
                     <button type="button" class="btn btn-outline-warning menu-btn">Kierunki</button>
                 </a>
             </li>
             <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
-                <a class="nav-link" href="admin/courses">
+                <a class="nav-link" href="/admin/courses">
                     <button type="button" class="btn btn-outline-warning menu-btn">Przedmioty</button>
                 </a>
             </li>
