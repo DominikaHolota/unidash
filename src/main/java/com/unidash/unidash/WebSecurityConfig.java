@@ -29,16 +29,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-    @Value("${spring.queries.users-query}")
-    private String usersQuery;
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.
                 jdbcAuthentication()
-//                .authoritiesByUsernameQuery(usersQuery)
                 .dataSource(dataSource)
-//               .usersByUsernameQuery("select email, password, is_active, role from users where email=?");
                 .passwordEncoder(bCryptPasswordEncoder)
                 .usersByUsernameQuery(
                         "select email,password, is_active from users where email=?")
@@ -65,10 +60,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
 
+//        TODO: ustawić prawidłowe zabezpieczenia na poszczególne elementy
+
     }
 
 
-//
+//    Logowanie z pamięci
 //    @Bean
 //    @Override
 //    public UserDetailsService userDetailsService() {

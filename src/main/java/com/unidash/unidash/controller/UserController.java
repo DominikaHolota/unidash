@@ -53,7 +53,6 @@ public class UserController {
         return "admin/users";
     }
 
-//    TODO: dodać obsługę dezaktywacji użytkownika i podmienić zachowanie pola w tabelce
 
 }
 
