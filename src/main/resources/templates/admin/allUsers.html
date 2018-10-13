@@ -26,7 +26,11 @@
             <td><span th:text="${user.lastname}"> Author </span></td>
             <td><span th:text="${user.email}">Email</span></td>
             <td><span th:text="${#strings.substring(user.role,5)} ">Rola</span></td>
-            <td><i class="fas fa-user-edit"></i></td>
+            <td>
+                <form th:object="${user}" th:action="@{/delete/{id}(id=${user.id})}" th:method="delete"><a href="#"
+                                                                                                           onclick="$(this).closest('form').submit()"><i
+                        class="fas fa-user-edit"></i></a></form>
+            </td>
             <td><i class="fas fa-user-times"></i></td>
         </tr>
         </tbody>

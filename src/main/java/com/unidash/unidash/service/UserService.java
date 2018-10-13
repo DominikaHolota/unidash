@@ -23,6 +23,7 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
+
     public void saveUser(Users user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(true);
