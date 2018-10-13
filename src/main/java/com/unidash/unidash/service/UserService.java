@@ -26,9 +26,21 @@ public class UserService {
 
     public void saveUser(Users user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(true);
+//        user.setActive(true);
         userRepository.save(user);
     }
+
+    public void editUser(Users user, String email, String role, String password, String name, String lastname, boolean isActive) {
+        user.setEmail(email);
+        user.setRole(role);
+        user.setPassword(bCryptPasswordEncoder.encode(password));
+        user.setName(name);
+        user.setLastname(lastname);
+        user.setActive(isActive);
+        userRepository.save(user);
+    }
+
+
 
 
 }

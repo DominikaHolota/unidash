@@ -15,8 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@Controller
-public class UserController {
+@RestController
+public class UserRESTController {
 
     @Autowired
     UserRepository userRepository;
@@ -27,19 +27,21 @@ public class UserController {
     @Autowired
     UsersDao usersDao;
 
-    @GetMapping("/admin/users")
-    public String showAll(Model model) {
-        model.addAttribute("users", userRepository.findAll());
-        return "admin/users";
+    //    @GetMapping("/admin/users")
+//    public String showAll(Model model) {
+//        model.addAttribute("users", userRepository.findAll());
+//        return "admin/users";
+//    }
+//
+    @GetMapping(value = "admin/user/rest/edit/{id}", produces = "application/json")
+    public List<Users> getUser(@PathVariable int id) {
+        return usersDao.findById(id);
     }
 
-    @GetMapping("admin/user/edit/{id}")
-    public String getUser(@PathVariable int id, Model model) {
-        model.addAttribute("user", usersDao.findById(id));
-        return "admin/userEdit";
-    }
-
-    //
+//    @GetMapping("admin/user/edit/{id}")
+//    public String getUser(@PathVariable Long id) {
+//        return UsersDao.findById(id);
+//    }
 //    @RequestMapping(value="admin/user/edit/{id}", method = RequestMethod.GET)
 //    public String edit(@PathVariable Long id, Model model) {
 //        Users user = new Users();
@@ -47,11 +49,12 @@ public class UserController {
 //        return "admin/userEdit";
 //    }
 //
-    @RequestMapping(value = "admin/user/edit/{id}", method = RequestMethod.POST)
-    public String saveUser(Users user) {
-        userService.editUser(user, "zmieniony@zmieniony.pl", "student", "nowehaslo", "zmieniony", "zmieniony", false);
-        return "admin/users";
-    }
+//    @RequestMapping(value = "admin/user/edit/{id}", method = RequestMethod.POST)
+//    public String saveUser(Users user){
+//        boolean isActive = false;
+//        userService.editUser(user);
+//        return "redirect:admin/users";
+//    }
 
 //    TODO: dodać obsługę dezaktywacji użytkownika i podmienić zachowanie pola w tabelce
 
