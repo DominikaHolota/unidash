@@ -9,7 +9,7 @@
     <form th:action="@{/admin/user/edit/{id}(id=${user[0].id})}" th:object="${user}" method="post"
           class="form-horizontal"
           role="form">
-        <button type="submit" class="btn btn-primary btn-block">Register User</button>
+        <button type="submit" class="btn btn-primary btn-block">Zmień użytkownika</button>
     </form>
     <div th:text="${user[0].id}"></div>
 </section>
