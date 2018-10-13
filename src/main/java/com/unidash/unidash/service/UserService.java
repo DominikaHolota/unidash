@@ -29,9 +29,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public Users getAllUsers() {
-        return userRepository.getAllExists();
-    }
+
 }
 
 
