@@ -40,14 +40,14 @@
         <label>E-mail: </label><input type="text" th:value="${user[0].email}" name="email" placeholder="email">
         <label>Aktywny: </label><input type="checkbox" th:checked="${user[0].active}" name="active">
         <select name="role">
-            <option value="'student'" th:text="Student" th:selected="${user[0].role == 'ROLE_student'}"></option>
-            <option value="'teacher'" th:text="Nauczyciel" th:selected="${user[0].role == 'ROLE_teacher'}"></option>
-            <option value="'admin'" th:text="Admin" th:selected="${user[0].role == 'ROLE_admin'}"></option>
+            <option value="student" th:text="Student" th:selected="${user[0].role == 'ROLE_student'}"></option>
+            <option value="teacher" th:text="Nauczyciel" th:selected="${user[0].role == 'ROLE_teacher'}"></option>
+            <option value="admin" th:text="Admin" th:selected="${user[0].role == 'ROLE_admin'}"></option>
 
         </select>
         <label>Hasło:</label><input type="password" id="pass" th:value="${user[0].password}" name="password">
         <button type="submit" class="btn btn-primary btn-block">Zmień użytkownika</button>
-        <input type="checkbox" th:name="pass_change" id="pass_monitor">
+        <input type="checkbox" th:name="pass_change" id="pass_monitor" class="hidden">
     </form>
     <p th:text="${user[0].id}"></p>
     <p th:text="${user[0].name}"></p>
