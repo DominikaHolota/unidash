@@ -38,7 +38,6 @@ public class StudentController {
 //        return "admin/allUsers";
 //    }
 
-//    TODO: dodać obsługę dezaktywacji użytkownika i podmienić zachowanie pola w tabelce
 
 }
 

@@ -49,7 +49,7 @@ public class LoginController {
             modelAndView.setViewName("registration");
         } else {
             userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
+            modelAndView.addObject("successMessage", "Użytkownik został dodany!");
             modelAndView.addObject("user", new Users());
             modelAndView.setViewName("registration");
 
