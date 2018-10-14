@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorator="default">
+<head>
+	<title>Dodaj ogłoszenie</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+	<p th:text="${successMessage}"></p>
+	<form th:action="@{/admin/notice/add}" th:object="${notice}" method="post" class="form-horizontal"
+	      role="form">
+		<div class="form-group">
+			<div class="col-sm-9">
+				<label>Ogłoszenie:</label>
+				<input type="text" th:field="${notice.noticeContent}" name="noticeContent"
+				       placeholder="Wpisz treść ogłoszenia" class="form-control" required/>
+			</div>
+			<div class="col-sm-9">
+				<button type="submit" class="btn btn-primary btn-block">Register User</button>
+			</div>
+		</div>
+	</form>
+</section>
+</body>
+</html>
