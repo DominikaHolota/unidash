@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" layout:decorator="default">
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorator="default">
 <head>
     <title>test layoutu</title>
 </head>
 <body>
-<section layout:fragment="content">
-    Logged user: <span sec:authentication="name"></span> |
-    <!--Roles: <span sec:authentication="principal.authorities"></span>-->
+<section layout:fragment="content" class="container">
+
+    <article class="userData">
+        <img src="/images/user-placeholder.jpg" alt="user image" class="userImage">
+        <div class="userDetails">
+            <h1><span th:text="${user.name}"></span> <span th:text="${user.lastname}"></span></h1>
+            <p th:text="${user.email}"></p>
+            <b><span sec:authorize="hasRole('ROLE_admin')">pracownik administracyjny</span></b>
+            <b><span sec:authorize="hasRole('ROLE_student')">student</span></b>
+            <b><span sec:authorize="hasRole('ROLE_teacher')">nauczyciel</span></b>
+        </div>
+    </article>
 </section>
 </body>
 </html>

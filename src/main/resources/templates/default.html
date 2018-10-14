@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
           integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -18,69 +18,53 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg">
+<nav class=" navbar-default navbar  navbar-expand-md ">
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
-        <span class="navbar-toggler-icon"></span>
+        <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav">
 
             <!--wspólne dla wszystkich-->
-            <li class="nav-item logo">
-                <img src="/images/logo.png" alt="">
+            <li class="nav-logo nav-item">
+                <a href="/dashboard"><img src="/images/logo.png" alt="" class="logo"></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Strona główna</button>
-                </a>
+                <a class="nav-link" href="/dashboard">Strona główna</a>
             </li>
+
+
             <!--dla studenta-->
+
+
             <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
-                <a class="nav-link" href="/student/grades">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Twoje oceny</button>
-                </a>
+                <a class="nav-link" href="/student/grades">Twoje oceny</a>
             </li>
             <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
-                <a class="nav-link" href="/student/courses">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Twoje zajęcia</button>
-                </a>
+                <a class="nav-link" href="/student/courses">Twoje zajęcia</a>
             </li>
             <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
-                <a class="nav-link" href="/student/payments">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Twoje płatności</button>
-                </a>
+                <a class="nav-link" href="/student/payments">Twoje płatności</a>
             </li>
             <!--dla nauczyciela-->
             <li sec:authorize="hasRole('ROLE_teacher')" class="nav-item">
-                <a class="nav-link" href="/teacher/students">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Twoi studenci</button>
-                </a>
+                <a class="nav-link" href="/teacher/students">Twoi studenci</a>
             </li>
             <li sec:authorize="hasRole('ROLE_teacher')" class="nav-item">
-                <a class="nav-link" href="/teacher/courses">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Twoje zajęcia</button>
-                </a>
+                <a class="nav-link" href="/teacher/courses">Twoje zajęcia</a>
             </li>
             <!--dla admina-->
             <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
-                <a class="nav-link" href="/admin/users">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Użytkownicy</button>
-                </a>
+                <a class="nav-link" href="/admin/users">Użytkownicy</a>
             </li>
             <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
-                <a class="nav-link" href="/admin/fos">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Kierunki</button>
-                </a>
+                <a class="nav-link" href="/admin/fos">Kierunki</a>
             </li>
             <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
-                <a class="nav-link" href="/admin/courses">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Przedmioty</button>
-                </a>
+                <a class="nav-link" href="/admin/courses">Przedmioty</a>
             </li>
             <li class="nav-item last-item">
-                <a class="nav-link" href="/login?logout">
-                    <button type="button" class="btn btn-outline-warning menu-btn">Wyloguj się</button>
-                </a>
+                <a class="nav-link" href="/login?logout">Wyloguj się</a>
             </li>
         </ul>
     </div>

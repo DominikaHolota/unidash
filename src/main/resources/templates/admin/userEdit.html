@@ -30,7 +30,7 @@
 </head>
 
 <body>
-<section layout:fragment="content">
+<section layout:fragment="content" class="container">
     <form th:action="@{/admin/user/edit/{id}(id=${user[0].id})}" th:object="${user}" method="post"
           class="form-horizontal"
           role="form">
