@@ -10,6 +10,7 @@ public class Subjects {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotEmpty
+    @Column(unique = true)
     private String name;
 
     public Integer getId() {

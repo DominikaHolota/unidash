@@ -36,6 +36,18 @@ public class Users implements Serializable {
     //    @NotEmpty
 //    @Column(nullable = false)
     private boolean isActive = true;
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "user")
+    private Students student;
+
+    public Students getStudent() {
+        return student;
+    }
+
+    public void setStudent(Students student) {
+        this.student = student;
+    }
 
     public Long getId() {
         return id;
