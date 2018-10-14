@@ -3,7 +3,32 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" layout:decorator="default">
 <head>
     <title>lista userów</title>
+    <script>
+        function checkChange($this) {
+            var value = $this.val();
+
+            var sv = $this.data("stored");
+
+            if (value != sv)
+                $this.trigger("simpleChange");
+
+        }
+
+        $(document).ready(function () {
+            $(this).data("stored", $(this).val());
+            $("input").bind("keyup", function (e) {
+                checkChange($(this));
+            });
+
+            $("#pass").bind("simpleChange", function (e) {
+                document.getElementById("pass_monitor").checked = true;
+            });
+
+        });
+    </script>
+
 </head>
+
 <body>
 <section layout:fragment="content">
     <form th:action="@{/admin/user/edit/{id}(id=${user[0].id})}" th:object="${user}" method="post"
@@ -20,11 +45,14 @@
             <option value="'admin'" th:text="Admin" th:selected="${user[0].role == 'ROLE_admin'}"></option>
 
         </select>
+        <label>Hasło:</label><input type="password" id="pass" th:value="${user[0].password}" name="password">
         <button type="submit" class="btn btn-primary btn-block">Zmień użytkownika</button>
+        <input type="checkbox" th:name="pass_change" id="pass_monitor">
     </form>
     <p th:text="${user[0].id}"></p>
     <p th:text="${user[0].name}"></p>
     <p th:text="${user[0].lastname}"></p>
 </section>
+
 </body>
 </html>

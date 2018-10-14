@@ -30,13 +30,19 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void editUser(Users user, String email, String role, String password, String name, String lastname, boolean isActive) {
+    public String encryptPass(String pass) {
+        return bCryptPasswordEncoder.encode(pass);
+    }
+
+
+    public void editUser(Users user, String email, String role, String name, String lastname, boolean isActive, String password) {
         user.setEmail(email);
         user.setRole(role);
-        user.setPassword(bCryptPasswordEncoder.encode(password));
+
         user.setName(name);
         user.setLastname(lastname);
         user.setActive(isActive);
+        user.setPassword(user.getPassword());
         userRepository.save(user);
     }
 

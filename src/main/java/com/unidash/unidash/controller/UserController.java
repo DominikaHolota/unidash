@@ -46,10 +46,15 @@ public class UserController {
 //        model.addAttribute("user", userRepository.findById(id));
 //        return "admin/userEdit";
 //    }
-//
+
     @RequestMapping(value = "admin/user/edit/{id}", method = RequestMethod.POST)
-    public String saveUser(Users user) {
-        userService.editUser(user, "zmieniony@zmieniony.pl", "student", "nowehaslo", user.getName(), "zmieniony", false);
+    public String saveUser(Users user, @RequestParam(defaultValue = "false") boolean pass_change) {
+        String password = user.getPassword();
+        if (pass_change == true) {
+            password = userService.encryptPass(password);
+            user.setPassword(password);
+        }
+        userService.editUser(user, user.getEmail(), user.getRole(), user.getName(), user.getLastname(), user.isActive(), user.getPassword());
         return "admin/users";
     }
 

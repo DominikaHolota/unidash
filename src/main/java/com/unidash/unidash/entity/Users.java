@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
-@DynamicUpdate
+@DynamicUpdate(value = true)
 @Data
 @Table(name="Users")
 public class Users implements Serializable {
@@ -26,8 +26,6 @@ public class Users implements Serializable {
     @Column(nullable = false)
     @Email(message = "*Wpisz prawidłowy adres e-mail")
     private String email;
-    @NotEmpty
-    @Column(nullable = false)
     private String password;
     @NotEmpty
     @Column(nullable = false)
