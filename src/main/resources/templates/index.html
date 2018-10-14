@@ -18,6 +18,21 @@
             <b><span sec:authorize="hasRole('ROLE_teacher')">nauczyciel</span></b>
         </div>
     </article>
+	<article class="news">
+		<h1>Ogłoszenia:</h1>
+		<table class="table news-table">
+			<thead>
+			<th>Data</th>
+			<th>Ogłoszenie</th>
+			</thead>
+			<tbody>
+			<tr th:each="notice : ${notices}">
+				<td><span th:text="${#strings.substring(notice.date,0,10)}">Date</span></td>
+				<td><span th:text="${notice.noticeContent}">Notice content</span></td>
+			</tr>
+			</tbody>
+		</table>
+	</article>
 </section>
 </body>
 </html>
