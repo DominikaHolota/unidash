@@ -3,21 +3,21 @@
       xmlns:sec="http://www.w3.org/1999/xhtml"
       layout:decorator="default">
 <head>
-	<title>Dodaj ogłoszenie</title>
+	<title>Dodaj przedmiot</title>
 </head>
 <body>
 <section layout:fragment="content" class="container">
 	<p th:text="${successMessage}"></p>
-	<form th:action="@{/admin/notice/add}" th:object="${notice}" method="post" class="form-horizontal"
+	<form th:action="@{/admin/subject/add}" th:object="${subject}" method="post" class="form-horizontal"
 	      role="form">
 		<div class="form-group">
 			<div class="col-sm-9">
-				<label>Ogłoszenie:</label>
-				<input type="text" th:field="${notice.noticeContent}" name="noticeContent"
-				       placeholder="Wpisz treść ogłoszenia" class="form-control" required/>
+				<label>Przedmiot:</label>
+				<input type="text" th:field="${subject.name}" name="name"
+				       placeholder="Podaj nazwę przedmiotu" class="form-control" required/>
 			</div>
 			<div class="col-sm-9">
-				<button type="submit" class="btn btn-primary btn-block">Dodaj ogłoszenie</button>
+				<button type="submit" class="btn btn-primary btn-block">Dodaj przedmiot</button>
 			</div>
 		</div>
 	</form>
