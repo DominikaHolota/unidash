@@ -39,20 +39,14 @@
 
 
             <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
-                <a class="nav-link" href="/student/grades">Twoje oceny</a>
+	            <a class="nav-link" th:href="@{/student/grades}">Twoje oceny</a>
             </li>
-            <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
-                <a class="nav-link" href="/student/courses">Twoje zajęcia</a>
-            </li>
-            <li sec:authorize="hasRole('ROLE_student')" class="nav-item">
-                <a class="nav-link" href="/student/payments">Twoje płatności</a>
+	        <li class="nav-item">
+		        <a class="nav-link" href="/student/courses">Zajęcia</a>
             </li>
             <!--dla nauczyciela-->
             <li sec:authorize="hasRole('ROLE_teacher')" class="nav-item">
-                <a class="nav-link" href="/teacher/students">Twoi studenci</a>
-            </li>
-            <li sec:authorize="hasRole('ROLE_teacher')" class="nav-item">
-                <a class="nav-link" href="/teacher/courses">Twoje zajęcia</a>
+	            <a class="nav-link" href="/teacher/students">Studenci</a>
             </li>
             <!--dla admina-->
             <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">

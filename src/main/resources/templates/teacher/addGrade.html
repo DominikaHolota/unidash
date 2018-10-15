@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorator="default">
+<head>
+	<title>Dodaj ocene</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+	<p th:text="${successMessage}"></p>
+	<form th:action="@{/teacher/studentGrade/add/{id} (id=${user.getId()})}" th:object="${grade}" method="post"
+	      class="form-horizontal"
+	      role="form">
+		<div class="form-group">
+			<div class="col-sm-9">
+				<label>Ocena:</label>
+				<select th:name="value">
+					<option th:value="20" text="2,0"></option>
+					<option th:value="25" text="2,5"></option>
+					<option th:value="30" text="3,0"></option>
+					<option th:value="35" text="3,5"></option>
+					<option th:value="40" text="4,0"></option>
+					<option th:value="45" text="4,5"></option>
+					<option th:value="50" text="5,0"></option>
+				</select>
+				<label>
+					Przedmiot:
+				</label>
+				<select th:name="subId">
+					<div th:each="subject : ${subjects}">
+						<option th:value="${subject.id}" th:text="${subject.name}"></option>
+					</div>
+				</select>
+			</div>
+			<div class="col-sm-9">
+				<button type="submit" class="btn btn-primary btn-block">Dodaj ogłoszenie</button>
+			</div>
+		</div>
+	</form>
+</section>
+</body>
+</html>

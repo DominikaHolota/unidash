@@ -1,6 +1,8 @@
 package com.unidash.unidash;
 
 import com.unidash.unidash.entity.Users;
+import com.unidash.unidash.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" layout:decorator="default">
+<head>
+	<title>lista userów</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+	<table class="table">
+		<thead>
+		<th>Przedmiot</th>
+		</thead>
+		<tbody>
+		<tr th:each="subject:${subjects}">
+			<td>
+				<a th:href="@{/student/grades/{name}(name=${subject.name})}">
+					<span th:text="${subject.name}"></span>
+				</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" layout:decorator="default">
+<head>
+	<title>lista userów</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+	<table class="table">
+		<thead>
+		<th>Ocena</th>
+		</thead>
+		<tbody>
+		<tr th:each="grade:${grades}">
+			<td>
+
+				<span th:text="${grade.value}"></span>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<p>
+		<a href="/student/grades"><i class="fas fa-arrow-left"></i></a>
+	</p>
+</section>
+</body>
+</html>

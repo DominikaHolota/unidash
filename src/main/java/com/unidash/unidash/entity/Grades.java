@@ -5,6 +5,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -13,30 +14,36 @@ public class Grades implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty
+    @NotNull
     private Integer value;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "subject_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Subjects subject;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Students student;
 
     public Grades() {
+    }
+
+    public Students getStudent() {
+        return student;
+    }
+
+    public void setStudent(Students student) {
+        this.student = student;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId() {
+
     }
 
-    public Integer getValue() {
-        return value;
+    public double getValue() {
+        return value * 0.1;
     }
 
     public void setValue(Integer value) {
@@ -50,4 +57,5 @@ public class Grades implements Serializable {
     public void setSubject(Subjects subject) {
         this.subject = subject;
     }
+
 }

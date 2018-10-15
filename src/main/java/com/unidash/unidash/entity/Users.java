@@ -5,9 +5,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
@@ -17,7 +15,7 @@ import java.io.Serializable;
 public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     @NotEmpty
     @Column(nullable = false)
 //    @Pattern(regexp = "student|teacher|admin", flags = Pattern.Flag.CASE_INSENSITIVE)
@@ -36,8 +34,7 @@ public class Users implements Serializable {
     //    @NotEmpty
 //    @Column(nullable = false)
     private boolean isActive = true;
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,
+    @OneToOne(
             mappedBy = "user")
     private Students student;
 
@@ -49,11 +46,11 @@ public class Users implements Serializable {
         this.student = student;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

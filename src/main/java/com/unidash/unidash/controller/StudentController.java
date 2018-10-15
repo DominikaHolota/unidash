@@ -1,17 +1,16 @@
 package com.unidash.unidash.controller;
 
-import com.sun.xml.internal.bind.v2.TODO;
+import com.unidash.unidash.dao.GradeDao;
 import com.unidash.unidash.dao.StudentDao;
-import com.unidash.unidash.dao.UsersDao;
+import com.unidash.unidash.dao.SubjectDao;
 import com.unidash.unidash.entity.Users;
 import com.unidash.unidash.repo.UserRepository;
-import com.unidash.unidash.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class StudentController {
@@ -21,6 +20,12 @@ public class StudentController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    GradeDao gradeDao;
+
+    @Autowired
+    SubjectDao subjectDao;
 
     @GetMapping("/student")
     public String getAll() {
@@ -37,6 +42,25 @@ public class StudentController {
 //        model.addAttribute("users", userRepository.findAll());
 //        return "admin/allUsers";
 //    }
+
+    @GetMapping("/student/grades")
+    public String getSubjects(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Users user = userRepository.findByEmail(auth.getName());
+
+        model.addAttribute("subjects", subjectDao.findByStudentId(user.getId()));
+        return "/student/studentGrades";
+
+    }
+
+    @GetMapping("/student/grades/{name}")
+    public String getGrades(@PathVariable(name = "name") String name, Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Users user = userRepository.findByEmail(auth.getName());
+
+        model.addAttribute("grades", gradeDao.findByUserIdAndSubjectName(user.getId(), name));
+        return "/student/gradesList";
+    }
 
 
 }

@@ -16,4 +16,10 @@ public class SubjectService {
         subjectRepository.save(subject);
     }
 
+    public Subjects findByName(String name) {
+        Subjects subject = subjectRepository.findByName(name);
+        return subject;
+
+    }
+
 }
