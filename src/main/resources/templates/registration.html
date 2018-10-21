@@ -3,7 +3,7 @@
       xmlns:sec="http://www.w3.org/1999/xhtml"
       layout:decorator="default">
 <head>
-    <title>test layoutu</title>
+	<title>Dodawanie uzytkownika</title>
 </head>
 <body>
 <section layout:fragment="content" class="container">
@@ -11,37 +11,37 @@
         <div class="col-md-6 col-md-offset-3">
             <p th:text="${successMessage}"></p>
             <form autocomplete="off" action="#" th:action="@{/registration}"
-                  th:object="${user}" method="post" class="form-horizontal"
+                  th:object="${user}" method="post" class="form-horizontal form"
                   role="form">
-                <h2>Registration Form</h2>
+	            <h2 class="formLabel">Dodaj uzytkownika:</h2>
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{name}" placeholder="Name"
-                               class="form-control" required/>
+	                    <input type="text" th:field="*{name}" placeholder="Imię"
+	                           class="form-control" required/>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-9">
                         <input type="text" th:field="*{lastname}"
-                               placeholder="Last Name" class="form-control" required/>
+                               placeholder="Nazwisko" class="form-control" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input type="text" th:field="*{email}" placeholder="Email"
-                               class="form-control" required/>
+	                    <input type="text" th:field="*{email}" placeholder="E-mail"
+	                           class="form-control" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-9">
                         <input type="password" th:field="*{password}"
-                               placeholder="Password" class="form-control" required/>
+                               placeholder="Hasło" class="form-control" required/>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <select th:field="*{role}">
+	                    <select th:field="*{role}" class="select">
                             <option th:value="'ROLE_student'" th:text="Student"></option>
                             <option th:value="'ROLE_teacher'" th:text="Nauczyciel"></option>
                             <option th:value="'ROLE_admin'" th:text="Admin"></option>
@@ -52,7 +52,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <button type="submit" class="btn btn-primary btn-block">Register User</button>
+	                    <button type="submit" class="btn btn-primary confirm-button">Dodaj Użytkownika</button>
                     </div>
                 </div>
 

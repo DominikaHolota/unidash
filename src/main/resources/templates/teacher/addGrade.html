@@ -9,31 +9,34 @@
 <section layout:fragment="content" class="container">
 	<p th:text="${successMessage}"></p>
 	<form th:action="@{/teacher/studentGrade/add/{id} (id=${user.getId()})}" th:object="${grade}" method="post"
-	      class="form-horizontal"
+	      class="form-horizontal form"
 	      role="form">
 		<div class="form-group">
 			<div class="col-sm-9">
-				<label>Ocena:</label>
-				<select th:name="value">
-					<option th:value="20" text="2,0"></option>
-					<option th:value="25" text="2,5"></option>
-					<option th:value="30" text="3,0"></option>
-					<option th:value="35" text="3,5"></option>
-					<option th:value="40" text="4,0"></option>
-					<option th:value="45" text="4,5"></option>
-					<option th:value="50" text="5,0"></option>
+				<label class="formLabel">Ocena:</label>
+				<select th:name="value" class="form-control">
+					<option th:value="20" text="2,0">2,0</option>
+					<option th:value="25" text="2,5">2,5</option>
+					<option th:value="30" text="3,0">3,0</option>
+					<option th:value="35" text="3,5">3,5</option>
+					<option th:value="40" text="4,0">4,0</option>
+					<option th:value="45" text="4,5">4,5</option>
+					<option th:value="50" text="5,0">5,0</option>
 				</select>
-				<label>
+			</div>
+			<div class="col-sm-9">
+				<label class="formLabel">
 					Przedmiot:
 				</label>
-				<select th:name="subId">
+				<select th:name="subId" class="form-control">
 					<div th:each="subject : ${subjects}">
 						<option th:value="${subject.id}" th:text="${subject.name}"></option>
 					</div>
 				</select>
 			</div>
+		</div>
 			<div class="col-sm-9">
-				<button type="submit" class="btn btn-primary btn-block">Dodaj ogłoszenie</button>
+				<button type="submit" class="btn btn-primary btn-block confirm-button form-control">Dodaj ocenę</button>
 			</div>
 		</div>
 	</form>

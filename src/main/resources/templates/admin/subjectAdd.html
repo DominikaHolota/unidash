@@ -8,16 +8,16 @@
 <body>
 <section layout:fragment="content" class="container">
 	<p th:text="${successMessage}"></p>
-	<form th:action="@{/admin/subject/add}" th:object="${subject}" method="post" class="form-horizontal"
+	<form th:action="@{/admin/subject/add}" th:object="${subject}" method="post" class="form-horizontal form"
 	      role="form">
 		<div class="form-group">
 			<div class="col-sm-9">
-				<label>Przedmiot:</label>
+				<label class="formLabel">Przedmiot:</label>
 				<input type="text" th:field="${subject.name}" name="name"
 				       placeholder="Podaj nazwę przedmiotu" class="form-control" required/>
 			</div>
 			<div class="col-sm-9">
-				<button type="submit" class="btn btn-primary btn-block">Dodaj przedmiot</button>
+				<button type="submit" class="btn btn-primary confirm-button">Dodaj przedmiot</button>
 			</div>
 		</div>
 	</form>

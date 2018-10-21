@@ -42,7 +42,7 @@
 	            <a class="nav-link" th:href="@{/student/grades}">Twoje oceny</a>
             </li>
 	        <li class="nav-item">
-		        <a class="nav-link" href="/student/courses">Zajęcia</a>
+		        <a class="nav-link" href="/courses">Zajęcia</a>
             </li>
             <!--dla nauczyciela-->
             <li sec:authorize="hasRole('ROLE_teacher')" class="nav-item">
@@ -53,10 +53,7 @@
                 <a class="nav-link" href="/admin/users">Użytkownicy</a>
             </li>
             <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
-                <a class="nav-link" href="/admin/fos">Kierunki</a>
-            </li>
-            <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
-                <a class="nav-link" href="/admin/courses">Przedmioty</a>
+	            <a class="nav-link" href="/admin/subject/add">Dodaj przedmioty</a>
             </li>
             <li sec:authorize="hasRole('ROLE_admin')" class="nav-item">
                 <a class="nav-link" href="/admin/notice/add">Dodaj ogłoszenie</a>

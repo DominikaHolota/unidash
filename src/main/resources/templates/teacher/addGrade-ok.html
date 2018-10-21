@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
 <head>
-	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>Ocena została dodana</title>
 </head>
 <body>
-
+<nav></nav>
+<section layout:fragment="content" class="container">
+	<h1 class="formLabel">Ocena prawidłowo dodana!</h1>
+	<p class="backButton"><a href="/teacher/students"><i class="fas fa-arrow-circle-left icon"></i> Wróć do listy</a>
+	</p>
+</section>
 </body>
 </html>

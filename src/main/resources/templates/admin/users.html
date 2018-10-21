@@ -6,6 +6,7 @@
 </head>
 <body>
 <section layout:fragment="content" class="container">
+	<p class="additionalACtion"><a href="/registration">Dodaj użytkownika <i class="fas fa-user-plus icon"></i></a></p>
     <table class="table">
         <thead>
         <tr>
@@ -23,7 +24,7 @@
             <td><span th:text="${user.email}">Email</span></td>
             <td><span th:text="${#strings.substring(user.role,5)} ">Rola</span></td>
             <td><a th:href="@{/admin/user/edit/{id}(id=${user.id})}"><i
-                    class="fas fa-user-edit"></i></a></td>
+		            class="fas fa-user-edit icon"></i></a></td>
         </tr>
         </tbody>
     </table>

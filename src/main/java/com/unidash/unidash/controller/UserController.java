@@ -54,6 +54,7 @@ public class UserController {
             password = userService.encryptPass(password);
             user.setPassword(password);
         }
+
         userService.editUser(user, user.getEmail(), user.getRole(), user.getName(), user.getLastname(), user.isActive(), user.getPassword());
         return "admin/users";
     }

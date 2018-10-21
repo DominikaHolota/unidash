@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" layout:decorator="default">
+      layout:decorator="default">
 <head>
-	<title>lista userów</title>
+	<title>Lista studentów</title>
 </head>
 <body>
 <section layout:fragment="content" class="container">
@@ -13,7 +13,7 @@
 			<th> Nazwisko</th>
 			<th> E-mail</th>
 			<th> Rola</th>
-			<th> Zmień</th>
+			<th> Dodaj ocenę</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -22,8 +22,8 @@
 			<td><span th:text="${user.lastname}"> Author </span></td>
 			<td><span th:text="${user.email}">Email</span></td>
 			<td><span th:text="${#strings.substring(user.role,5)} ">Rola</span></td>
-			<td><a th:href="@{/teacher/studentGrade/add/{id}(id=${user.id})}"><i
-					class="fas fa-user-edit"></i></a></td>
+			<td><a th:href="@{/teacher/studentGrade/add/{id}(id=${user.id})}"><i class="fas fa-user-plus icon"></i></a>
+			</td>
 		</tr>
 		</tbody>
 	</table>

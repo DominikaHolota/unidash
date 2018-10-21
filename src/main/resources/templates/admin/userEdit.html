@@ -32,23 +32,43 @@
 <body>
 <section layout:fragment="content" class="container">
     <form th:action="@{/admin/user/edit/{id}(id=${user[0].id})}" th:object="${user}" method="post"
-          class="form-horizontal"
+          class="form-horizontal form"
           role="form">
-        <label>Imię: </label><input type="text" th:value="${user[0].name}" name="name" placeholder="name">
-        <label>Nazwisko: </label><input type="text" th:value="${user[0].lastname}" name="lastname"
-                                        placeholder="lastname">
-        <label>E-mail: </label><input type="text" th:value="${user[0].email}" name="email" placeholder="email">
-        <label>Aktywny: </label><input type="checkbox" th:checked="${user[0].active}" name="active">
-        <select name="role">
-            <option value="ROLE_student" th:text="Student" th:selected="${user[0].role == 'ROLE_student'}"></option>
-            <option value="ROLE_teacher" th:text="Nauczyciel" th:selected="${user[0].role == 'ROLE_teacher'}"></option>
-            <option value="ROLE_admin" th:text="Admin" th:selected="${user[0].role == 'ROLE_admin'}"></option>
-
-        </select>
-        <label>Hasło:</label><input type="password" id="pass" th:value="${user[0].password}" name="password">
-        <button type="submit" class="btn btn-primary btn-block">Zmień użytkownika</button>
-        <input type="checkbox" th:name="pass_change" id="pass_monitor" class="hidden">
+	    <div class="form-group">
+		    <h1 class="formLabel">Zmień dane użytkownika:</h1>
+		    <div class="col-sm-9">
+			    <label>Imię: </label><input type="text" th:value="${user[0].name}" name="name" placeholder="name"
+			                                class="form-control">
+		    </div>
+		    <div class="col-sm-9">
+			    <label>Nazwisko: </label><input type="text" th:value="${user[0].lastname}" name="lastname"
+			                                    placeholder="lastname" class="form-control">
+		    </div>
+		    <div class="col-sm-9">
+			    <label>E-mail: </label><input type="text" th:value="${user[0].email}" name="email" placeholder="email"
+			                                  class="form-control">
+		    </div>
+		    <div class="col-sm-9">
+			    <label>Rola:</label>
+			    <select name="role" class="form-control">
+				    <option value="ROLE_student" th:text="Student"
+				            th:selected="${user[0].role == 'ROLE_student'}"></option>
+				    <option value="ROLE_teacher" th:text="Nauczyciel"
+				            th:selected="${user[0].role == 'ROLE_teacher'}"></option>
+				    <option value="ROLE_admin" th:text="Admin" th:selected="${user[0].role == 'ROLE_admin'}"></option>
+			    </select>
+		    </div>
+		    <div class="col-sm-9">
+			    <label>Hasło:</label><input type="password" id="pass" th:value="${user[0].password}" name="password"
+			                                class="form-control">
+		    </div>
+		    <div class="col-sm-9">
+			    <button type="submit" class="btn btn-primary confirm-button">Zapisz</button>
+		    </div>
+		    <input type="checkbox" th:name="pass_change" id="pass_monitor" class="hidden">
+	    </div>
     </form>
+
 </section>
 
 </body>
